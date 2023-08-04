@@ -108,32 +108,32 @@ contains(names, "Colt", function (result) {
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-function uniq(arr1,cb1){
-  let set = new Set(arr1)//Set=only has unique values
-//FIT Why do I need this line?
-  let newArr = [...set]
-//FIT
-  cb1(newArr)
-}
+// function uniq(arr1,cb1){
+//   let set = new Set(arr1)//Set=is a class. it only has unique values
+// //FIT Why do I need this line?
+//   let newArr = [...set]//...= Spread operator. Copies everything from one array and adds it to another
+// //FIT
+//   cb1(newArr)
+// }
 
 /////// FAULTY CODE //
-// function uniq(arr1, cb1) {
-//   if (arr1.length === 0 || arr1.length === 1) {
-//     return arr1;
-//   }
-//   if (!cb1) {
-//     return arr1;
-//   }
-//   for (let u = 0; u < arr1.length; u++) {
-//     for (let w = u + 1; w < arr1.length; w++) {
-//       if (cb1(arr1[u], arr1[w])) {
-//         arr1.splice(u, 1);
-//       }
-//     }
-//   }
-//   return arr1;
-// }
-///////
+function uniq(arr1, cb1) {
+  if (arr1.length === 0 || arr1.length === 1) {
+    return arr1;
+  }
+  if (!cb1) {
+    return arr1;
+  }
+  for (let u = 0; u < arr1.length; u++) {
+    for (let w = u + 1; w < arr1.length; w++) {
+      if (arr1[u] === arr1[w]) {
+        arr1.splice(w, 1); //splice function starts at the index of an array (u), and deletes the number of items entered (1).
+      }
+    }
+  }
+  cb1(arr1);
+}
+/////
 
 // Do not edit the code below.
 uniq(names, function (uniqArr) {
@@ -153,7 +153,7 @@ uniq(names, function (uniqArr) {
 
 function each(nameArr,cb1){
   for (let l = 0; l < nameArr.length; l++){
-    cb1(nameArr[l])
+    cb1(nameArr[l],l)
   }
 }
 
@@ -170,7 +170,20 @@ each(names, function (item, indice) {
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+// function getUserById(arrUsers,id,cb1){
+//   let found = arrUsers.find(element.id === id)
+//   console.log (found)
+// }
+
+function getUserById(arrUsers,id,cb1){
+  let correctUser;
+  for (let i = 0; i < arrUsers.length; i++){
+    if (arrUsers[i].id === id){
+      correctUser = arrUsers[i]
+    }
+  }
+  cb1(correctUser)
+}
 
 // Do not edit the code below.
 var users = [
