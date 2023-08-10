@@ -37,7 +37,7 @@ function last(arr){
 }
 
 ////////// PROBLEM 3 //////////
-//FIT--What is an alert??
+//-What is an alert??
 // Do not edit the code below.
 var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 // Do not edit the code above.

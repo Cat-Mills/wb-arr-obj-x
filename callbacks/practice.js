@@ -116,7 +116,6 @@ contains(names, "Colt", function (result) {
 //   cb1(newArr)
 // }
 
-/////// FAULTY CODE //
 function uniq(arr1, cb1) {
   if (arr1.length === 0 || arr1.length === 1) {
     return arr1;
